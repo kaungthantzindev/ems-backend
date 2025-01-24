@@ -16,6 +16,22 @@ export class EmployeeService {
     return this.prismaService.employee.findMany()
   }
 
+  async getOne(id: number) {
+    try {
+      const employee = await this.prismaService.employee.findFirst({
+        where: { id },
+      })
+
+      if (!employee) {
+        throw new NotFoundException('Employee not found')
+      }
+
+      return employee
+    } catch (error) {
+      throw error
+    }
+  }
+
   async create(dto: CreateEmployeeDto) {
     try {
       const employee = await this.prismaService.employee.create({

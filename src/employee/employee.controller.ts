@@ -23,6 +23,12 @@ export class EmployeeController {
     return this.employeeService.getAll()
   }
 
+  @Get(':id')
+  @ApiOperation({ summary: 'get employee detail' })
+  getEmployee(@Param('id') id: string) {
+    return this.employeeService.getOne(parseInt(id))
+  }
+
   @Post()
   @ApiOperation({ summary: 'create employee' })
   register(@Body() dto: CreateEmployeeDto) {
