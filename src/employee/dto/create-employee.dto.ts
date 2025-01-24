@@ -1,9 +1,12 @@
+import { Type } from 'class-transformer'
 import {
   IsNotEmpty,
   IsNumber,
   IsOptional,
-  IsPhoneNumber,
   IsString,
+  // Max,
+  // MaxLength,
+  // MinLength,
 } from 'class-validator'
 
 export class CreateEmployeeDto {
@@ -16,6 +19,9 @@ export class CreateEmployeeDto {
   name: string
 
   @IsOptional()
-  @IsPhoneNumber('MM')
+  @Type(() => Number)
+  @IsNumber()
+  // @MaxLength(11)
+  // @MinLength(5)
   phone: string
 }

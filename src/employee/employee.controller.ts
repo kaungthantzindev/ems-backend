@@ -41,9 +41,9 @@ export class EmployeeController {
     return this.employeeService.update(parseInt(id), dto)
   }
 
-  @Delete()
+  @Delete(':id')
   @ApiOperation({ summary: 'delete employee' })
-  delete(@Param('id') id: number) {
-    return this.employeeService.delete(id)
+  delete(@Param('id') id: string) {
+    return this.employeeService.delete(parseInt(id))
   }
 }
