@@ -1,11 +1,21 @@
-import { IsNotEmpty, IsPhoneNumber, IsString } from 'class-validator'
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsPhoneNumber,
+  IsString,
+} from 'class-validator'
 
 export class CreateEmployeeDto {
+  @IsNotEmpty()
+  @IsNumber()
+  id: number
+
   @IsNotEmpty()
   @IsString()
   name: string
 
-  @IsNotEmpty()
-  @IsPhoneNumber()
+  @IsOptional()
+  @IsPhoneNumber('MM')
   phone: string
 }
