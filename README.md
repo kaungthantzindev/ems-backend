@@ -2,6 +2,9 @@
 
 A backend application built with **NestJS**, **Prisma**, and **PostgreSQL**.
 
+## swagger ui
+http://localhost:8080/apidoc 
+
 ---
 
 ## Prerequisites
